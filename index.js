@@ -1,18 +1,8 @@
-const express = require("express");
+  
+const server = require('./server.js');
 
-const server = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
-server.use(express.json());
-
-server.get("/api/recipes", async (req, res, next) => {
-  try {
-    res.json(await db("recepies"));
-  } catch (err) {
-    next(err);
-  }
-});
-
-server.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
 });
