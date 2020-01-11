@@ -2,8 +2,8 @@ const express = require("express");
 const Tasks = require("./taskModel");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  Tasks.get()
+router.get("/:id", (req, res) => {
+  Tasks.get(req.params.id)
     .then(task => {
       res.status(200).json(task);
     })

@@ -1,4 +1,6 @@
-const db = require("../db-config");
+const db = require("../db-config")
+const conv = require('./convertor')
+
 module.exports = {
   get,
   add
@@ -7,7 +9,8 @@ function get() {
   return db("projects").then(projects =>
     projects.map(project => {
       return {
-        ...project
+        ...project,
+        completed: conv.convBoolean(project.completed)
       };
     })
   );

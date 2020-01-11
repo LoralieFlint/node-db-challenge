@@ -1,25 +1,25 @@
-const db = require("../db-config")
-const conv = require('./convertor');
+const db = require("../db-config");
+const conv = require("./convertor");
 
 module.exports = {
   get,
   add
 };
-function get() {
-  return db("tasks").then(task =>
-    task.map(task => {
-      return {
-        ...task,
-        completed: conv.convBoolean(task.completed)
-      };
-    })
-  );
-}
 
-function add(task) {
+function get(id) {
   return db("tasks")
-    .insert(task)
-    .then(list => {
-      return get(list);
-    });
+    .join("projects", "projects.id", "tasks.project_id")
+    .select("projects.project_name", "projects.project_description")
+    .where("tasks.project_id", id)
+    .then(tasks =>
+      tasks.map(task => {
+        return {
+          ...task,
+          completed: conv.convBoolean(task.completed)
+        };
+      })
+    );
+}
+function add(task) {
+  return db("tasks").insert(task);
 }
