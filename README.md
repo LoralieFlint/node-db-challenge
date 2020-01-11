@@ -39,12 +39,16 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [ ] relational databases store data in tables using  rows and columns like the format of a spreadsheet. Each row represents a single record in the table and is made up of one or more columns. While Structured Query Language ( SQL ) is the standard language used to manage relational databases ( RDMS ) and the data within them. this how we interact with the database.
 
 - [ ] Why do tables need a `primary key`?
+- [ ] because this is the unique id in the table which can also connect other tables with foreign keys
 
 - [ ] What is the name given to a table column that references the primary key on another table.
+- [ ] foreign key
 
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+- [ ] we need a table that plays middle man that holds foreign keys that are related to the primary keys on related tables
 
 ## Minimum Viable Product
 
