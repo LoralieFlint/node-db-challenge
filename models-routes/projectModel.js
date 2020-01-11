@@ -1,23 +1,22 @@
-const db = require('../db-config')
+const db = require("../db-config");
 module.exports = {
-    get,
-    add
-}
+  get,
+  add
+};
 function get() {
-    return db("projects").then(projects =>
-      projects.map(project => {
-        return {
-          ...project,
-        };
-      })
-    );
-  }
+  return db("projects").then(projects =>
+    projects.map(project => {
+      return {
+        ...project
+      };
+    })
+  );
+}
 
-  function add(project) {
-    return db('projects')
+function add(project) {
+  return db("projects")
     .insert(project)
     .then(ids => {
-        return get(ids);
+      return get(ids);
     });
 }
-
