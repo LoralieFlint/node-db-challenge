@@ -1,0 +1,29 @@
+{
+  "name": "db-challenge",
+  "version": "1.0.0",
+  "description": "adding data persistance sprint",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "knex": "^0.20.4",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/node-db-challenge.git"
+  },
+  "author": "Loralie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/node-db-challenge#readme"
+}
