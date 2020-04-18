@@ -3,14 +3,15 @@ const conv = require("./convertor");
 
 module.exports = {
   get,
-  add
+  add,
+  remove
 };
 
-function get(id) {
+function get() {
   return db("tasks")
     .join("projects", "projects.id", "tasks.project_id")
     .select("projects.project_name", "projects.project_description")
-    .where("tasks.project_id", id)
+    // .where("tasks.project_id", id)
     .then(tasks =>
       tasks.map(task => {
         return {
@@ -22,4 +23,8 @@ function get(id) {
 }
 function add(task) {
   return db("tasks").insert(task);
+}
+
+function remove(id) {
+  return db('tasks').where({ id }).del();
 }

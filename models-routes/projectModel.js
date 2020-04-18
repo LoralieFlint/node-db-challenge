@@ -3,7 +3,8 @@ const conv = require('./convertor')
 
 module.exports = {
   get,
-  add
+  add,
+  remove
 };
 function get() {
   return db("projects").then(projects =>
@@ -22,4 +23,8 @@ function add(project) {
     .then(ids => {
       return get(ids);
     });
+}
+
+function remove(id) {
+  return db('projects').where({ id }).del();
 }

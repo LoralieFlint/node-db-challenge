@@ -1,7 +1,8 @@
 const db = require('../db-config')
 module.exports = {
     get,
-    add
+    add,
+    remove
 }
 function get() {
     return db("resources").then(resource =>
@@ -19,4 +20,8 @@ function get() {
     .then(ids => {
         return get(ids);
     });
+}
+
+function remove(id) {
+  return db('resources').where({ id }).del();
 }

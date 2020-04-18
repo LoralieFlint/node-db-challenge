@@ -40,7 +40,7 @@ exports.up = async function(knex) {
       table
         .boolean("completed")
         .default(false)
-        .notNullable();
+        .notNullable()
       table
         .integer("project_id")
         .unsigned()
